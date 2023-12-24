@@ -1,10 +1,9 @@
 import React from 'react'
-import slug from './[slug]'
 
 const page = () => {
   return (
-    <div>
-      <slug/>
+    <div className='min-h-lvh'>
+      <h1>Hi this is blogpost page.</h1>
     </div>
   )
 }
