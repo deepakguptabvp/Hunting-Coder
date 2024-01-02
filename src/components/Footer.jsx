@@ -31,10 +31,10 @@ const Footer = () => {
                                 <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
                                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                     <li className="mb-4">
-                                        <Link href="https://github.com/themesberg/flowbite" className="hover:underline ">Github</Link>
+                                        <Link href="https://github.com/deepakguptabvp" className="hover:underline ">Github</Link>
                                     </li>
                                     <li>
-                                        <Link href="https://discord.gg/4eeurUVvTy" className="hover:underline">Discord</Link>
+                                        <Link href="https://www.linkedin.com/in/deepak-gupta-057684141/" className="hover:underline">LinkedIn</Link>
                                     </li>
                                 </ul>
                             </div>
