@@ -22,7 +22,7 @@ export default function Home() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`${url}api/blog`)
+        const res = await fetch(`/api/blog`)
         const data = await res.json()
         setLoading(false);
         setBlogs(data.data)
