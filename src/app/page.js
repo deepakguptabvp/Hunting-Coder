@@ -14,15 +14,15 @@ export default function Home() {
 
     let url = ""
     if (process.env.NODE_ENV == "development") {
-      url = `http://localhost:3000`
+      url = `http://localhost:3000/`
     } else {
-      url = `https://huntingcoder-mu.vercel.app`
+      url = process.env.API_URL
     }
 
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`${url}/api/blog`)
+        const res = await fetch(`${url}api/blog`)
         const data = await res.json()
         setLoading(false);
         setBlogs(data.data)
