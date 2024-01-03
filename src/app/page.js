@@ -11,7 +11,7 @@ export default function Home() {
 
   useEffect(() => {
     console.log("useEffect is running...")
-    
+
     let url = ""
     if (process.env.NODE_ENV == "development") {
       url = `http://localhost:3000`
@@ -21,11 +21,15 @@ export default function Home() {
 
     const fetchData = async () => {
       setLoading(true);
-      const res = await fetch(`${url}/api/blog`)
-      const data = await res.json()
-      setLoading(false);
-      setBlogs(data.data)
-      console.log(data);
+      try {
+        const res = await fetch(`${url}/api/blog`)
+        const data = await res.json()
+        setLoading(false);
+        setBlogs(data.data)
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
     }
     fetchData();
   }, [])
