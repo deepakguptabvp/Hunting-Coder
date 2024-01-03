@@ -11,9 +11,17 @@ export default function Home() {
 
   useEffect(() => {
     console.log("useEffect is running...")
+    
+    let url = ""
+    if (process.env.NODE_ENV == "development") {
+      url = `http://localhost:3000`
+    } else {
+      url = `https://huntingcoder-mu.vercel.app`
+    }
+
     const fetchData = async () => {
       setLoading(true);
-      const res = await fetch('/api/blog')
+      const res = await fetch(`${url}/api/blog`)
       const data = await res.json()
       setLoading(false);
       setBlogs(data.data)
@@ -76,7 +84,7 @@ export default function Home() {
       </div>
 
       <div className="mb-5 grid text-center lg:max-w-6xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        {loading ? <Skeleton width={500} height={50} />  :
+        {loading ? <Skeleton width={500} height={50} /> :
           blogs.map((blogs) => {
             return <Link href={`/blogpost/${blogs.slug}`}
               className="group rounded-lg border border-transparent px-5 py-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
