@@ -2,16 +2,20 @@
 import Image from "next/image";
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Skeleton from 'react-loading-skeleton'
 
 export default function Home() {
 
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     console.log("useEffect is running...")
     const fetchData = async () => {
-      const res = await fetch('http://localhost:3000/api/blog')
+      setLoading(true);
+      const res = await fetch('/api/blog')
       const data = await res.json()
+      setLoading(false);
       setBlogs(data.data)
       console.log(data);
     }
@@ -72,23 +76,23 @@ export default function Home() {
       </div>
 
       <div className="mb-5 grid text-center lg:max-w-6xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
+        {loading ? <Skeleton width={500} height={50} />  :
+          blogs.map((blogs) => {
+            return <Link href={`/blogpost/${blogs.slug}`}
+              className="group rounded-lg border border-transparent px-5 py-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+              target="_blank"
+              rel="noopener noreferrer" key={blogs.slug}>
 
-        {blogs.map((blogs) => {
-          return <Link href={`/blogpost/${blogs.slug}`}
-            className="group rounded-lg border border-transparent px-5 py-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-            target="_blank"
-            rel="noopener noreferrer" key={blogs.slug}>
+              <h2 className={`mb-1 text-xl font-semibold`}>
+                {blogs.title}
+                {/* <span className="inline-block">-&gt;</span> */}
+                <hr />
+              </h2>
+              <p className={`max-w-[190ch] text-sm opacity-50`}>
+                {blogs.content.substr(0, 100)}... </p>
+            </Link>
 
-            <h2 className={`mb-1 text-xl font-semibold`}>
-              {blogs.title}
-              {/* <span className="inline-block">-&gt;</span> */}
-              <hr />
-            </h2>
-            <p className={`max-w-[190ch] text-sm opacity-50`}>
-              {blogs.content.substr(0, 100)}... </p>
-          </Link>
-
-        })
+          })
         }
 
 
