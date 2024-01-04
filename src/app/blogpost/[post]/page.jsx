@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useEffect, useState } from 'react';
-
+import Skeleton from "react-loading-skeleton"
 
 // Step:1 find the file corresponding to slug.
 // Step:1 populate them inside the page. 
@@ -10,13 +10,18 @@ import { useEffect, useState } from 'react';
 export default function blogpost({ params }) {
 
   const [blog, setBlog] = useState();
+  const [loading, setLoading] = useState(true)
+
+  const skeletonBlog = [1, 2, 3, 4]
   const router = useRouter();
 
   useEffect(() => {
 
     console.log(params);
     if (params.post) {
-      fetch(`http://localhost:3000/api/blog?param=${params.post}`).then((a) => {
+      setLoading(true)
+      fetch(`http://localhost:3000/api/blogList?param=${params.post}`).then((a) => {
+        setLoading(false)
         return a.json()
       }).then((parsed) => {
         console.log(parsed)
@@ -26,26 +31,16 @@ export default function blogpost({ params }) {
   }, [])
 
 
-  //   console.log("useEffect is running...")
-  //   if(params.post){
-  //   const fetchData1 = async () => {
-  //     const res = await fetch('http://localhost:3000/api/blog?param=${params.post}')
-  //     const data = await res.json()
-  //     console.log(data);
-  //     setBlog(data?.parsed?.data)
-  //   }
-  //   fetchData1();
-  // }
-  // }, [])
-
-
-  return <div className='min-h-lvh  mt-10' style={{ "marginLeft": "300px", "marginRight": "300px" }}>
-    <h3 className='font-bold text-center text-2xl'>{blog?.title}</h3>
-    <hr />
-    <div className='mb-3 mt-3'> <b><u>Content</u></b> : {blog?.content} </div>
-    <div className='mb-3'> <b><u>Author</u></b> : {blog?.author} </div>
-    <div className='mb-3'> <b><u>URL</u></b> : {blog?.url}</div>
-  </div>
-  
+  return (
+    <div className='min-h-lvh  mt-10' style={{ "marginLeft": "300px", "marginRight": "300px" }}>
+      <div className="group rounded-lg border border-transparent px-5 py-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
+        <h3 className='font-bold text-center text-2xl'>{blog?.title}</h3>
+        <hr />
+        <div className='mb-3 mt-3'> <b><u>Content</u></b> : {blog?.content} </div>
+        <div className='mb-3'> <b><u>Author</u></b> : {blog?.author} </div>
+        <div className='mb-3'> <b><u>URL</u></b> : {blog?.url}</div>
+      </div>
+    </div>
+  )
 }
 

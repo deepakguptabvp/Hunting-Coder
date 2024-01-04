@@ -9,7 +9,7 @@ export async function POST(req, res) {
                 let body = await req.json();
                 // console.log(req.body);
                 let data = await fs.promises.readdir('contactdata');
-                console.log(data, req.body, body);
+                // console.log(data, req.body, body);
                 responseData = await fs.promises.writeFile(`contactdata/${data.length + 1}.json`, JSON.stringify(body))
                 console.log(responseData);
                 return NextResponse.json(
@@ -35,6 +35,5 @@ export async function POST(req, res) {
             { status: 500 }
         );
     }
-
 }
 

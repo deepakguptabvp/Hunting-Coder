@@ -1,39 +1,41 @@
-'use client'
+"use client";
 import Image from "next/image";
-import React, { useEffect, useState } from 'react'
-import Link from 'next/link'
-import Skeleton from 'react-loading-skeleton'
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import Skeleton from "react-loading-skeleton";
 
 export default function Home() {
 
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    console.log("useEffect is running...")
+  const skeletonBlog = [1, 2, 3, 4]
 
-    let url = ""
+  useEffect(() => {
+    console.log("useEffect is running...");
+
+    // deployment on vercel
+    let url = "";
     if (process.env.NODE_ENV == "development") {
-      url = `http://localhost:3000/`
+      url = `http://localhost:3000/`;
     } else {
-      url = process.env.API_URL
+      url = process.env.API_URL;
     }
 
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`/api/blog`)
-        const data = await res.json()
+        const res = await fetch(`/api/blogList`);
+        const data = await res.json();
         setLoading(false);
-        setBlogs(data.data)
+        setBlogs(data.data);
         console.log(data);
       } catch (error) {
         console.log(error);
       }
-    }
+    };
     fetchData();
-  }, [])
-
+  }, []);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-6">
@@ -61,7 +63,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative  flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial
+      <div
+        className="relative  flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial
        before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 
        after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent
         before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
@@ -82,33 +85,58 @@ export default function Home() {
       </div>
 
       <div className="blogs">
-        <h2 className="text-4xl font-bold hover:text-blue-800">
-          Latest Blogs
-        </h2>
+        <h2 className="text-4xl font-bold hover:text-blue-800">Latest Blogs</h2>
       </div>
 
+
+      {/*  Fetching all blogs from blogsdata  */}
       <div className="mb-5 grid text-center lg:max-w-6xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        {loading ? <Skeleton width={500} height={50} /> : blogs?.map((blogs) => {
-          return <Link href={`/blogpost/${blogs.slug}`}
-            className="group rounded-lg border border-transparent px-5 py-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-            target="_blank"
-            rel="noopener noreferrer" key={blogs.slug}>
-
-            <h2 className={`mb-1 text-xl font-semibold`}>
-              {blogs.title}
-              {/* <span className="inline-block">-&gt;</span> */}
+       
+        {loading ? (skeletonBlog?.map((item, index) => {
+            return <div
+              className="group rounded-lg border border-transparent px-5 py-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
+              <Skeleton className={`mb-2`} height={"1.25rem"} />
               <hr />
-            </h2>
-            <p className={`max-w-[190ch] text-sm opacity-50`}>
-              {blogs.content.substr(0, 100)}... </p>
-          </Link>
+              <Skeleton className={`text-sm opacity-50 mt-1`} />
+              <Skeleton className={`text-sm opacity-50`} />
+              <Skeleton className={`text-sm opacity-50`} />
+              <Skeleton className={`text-sm opacity-50`} />
+            </div>
+          })
 
-        })
-        }
+        ) : (
+          blogs?.map((blogs) => {
+            return (
+              <Link
+                href={`/blogpost/${blogs.slug}`}
+                className="group rounded-lg border border-transparent px-5 py-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                target="_blank"
+                rel="noopener noreferrer"
+                key={blogs.slug}
+              >
+                <h2 className={`mb-1 text-xl font-semibold`}>
+                  {blogs.title}
+                  {/* <span className="inline-block">-&gt;</span> */}
+                  <hr />
+                </h2>
+                <p className={`max-w-[190ch] text-sm opacity-50`}>
+                  {blogs.content.substr(0,125)}...{" "}
+                </p>
+              </Link>
+            );
+          })
+        )}
+
+
+      </div>
+    </main>
+  );
+}
 
 
 
-        {/* <a
+// vercel starting code
+{/* <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
           target="_blank"
@@ -175,13 +203,3 @@ export default function Home() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a> */}
-
-      </div>
-
-    </main>
-    // <h1>hello</h1>
-  );
-}
-
-
-// hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30

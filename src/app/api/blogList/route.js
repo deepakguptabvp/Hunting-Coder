@@ -11,14 +11,13 @@ export async function GET(req, res) {
             try {
                 responseData = await fs.promises.readFile(`blogsdata/${param}.json`, "utf-8");
                 // console.log("jhgfdfghjk", responseData)
-                // console.log("helloooo file contents" + fileContents);
                 responseData = JSON.parse(responseData);
             } catch (error) {
                 return NextResponse.json(
                     { message: "blog not found" },
                     { status: 404 }
                 );
-                
+
             }
 
         } else {
@@ -36,7 +35,7 @@ export async function GET(req, res) {
             { message: "Message Get data", data: param ? responseData : fileContents },
             { status: 200 }
         );
-        
+
 
     } catch (error) {
         return NextResponse.json(
@@ -44,5 +43,4 @@ export async function GET(req, res) {
             { status: 500 }
         );
     }
-
 }
