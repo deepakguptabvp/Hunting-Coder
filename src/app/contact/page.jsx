@@ -1,5 +1,6 @@
 'use client'
 import { React, useState } from 'react'
+import { toast } from 'react-toastify';
 
 const page = () => {
 
@@ -27,7 +28,17 @@ const page = () => {
 
         const result = await response.text();
         console.log("Success:", result);
-        alert("Thank you for reaching out to us.")
+        // toast.dark("Thank you for reaching out to us.")
+        toast.success('👥 Thank you for reaching out to us.', {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: 1,
+          theme: "colored",
+          });
         setFirst_name('');
         setLast_name('');
         setCompany_institution('');

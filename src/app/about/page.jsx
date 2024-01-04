@@ -1,63 +1,96 @@
 import React from 'react'
+import Image from "next/image";
 
 const page = () => {
   return (
     <div className='min-h-lvh'>
-      <h2 className='text-4xl text-center mt-5 font-bold text-white border border-transparent rounded-md  hover:bg-opacity-90'><u> About Us </u></h2>
-      <section className="overflow-hidden p-7">
-        <div className="container mx-auto">
-          <div className="flex flex-wrap items-center justify-between -mx-4">
-            <div className="w-full px-4 lg:w-6/12">
-              <div className="flex items-center -mx-3 sm:-mx-4">
-                <div className="w-full px-3 sm:px-4 xl:w-1/2">
+      {/* <h2 className='text-4xl text-center mt-5 ms-8 font-bold border border-transparent rounded-md  hover:bg-opacity-90'><u> About Us </u></h2> */}
 
-                  <div className="py-3 sm:py-4">
-                    <img
-                      src="https://i.ibb.co/gFb3ns6/image-1.jpg"
+      <section className="overflow-hidden p-7">
+        <div className=" mx-auto">
+          <div className="flex ">
+            <div className="lg:w-2/4 text-center">
+              <div className='min-w-48'>
+                <div className="w-full text-center sm:px-4 xl:w-3/4">
+
+                  <div className="py-3 sm:py-4 text-center">
+                    <Image
+                      src="/image-1.jpg"
                       alt=""
-                      className="w-full rounded-2xl"
+                      height={200}
+                      width={200}
+                      className="w-full rounded-xl"
                     />
                   </div>
+
                   <div className="py-3 sm:py-4">
-                    <img
-                      src="https://i.ibb.co/rfHFq15/image-2.jpg"
+                    <Image
+                      src="/image-2.jpg"
                       alt=""
+                      height={50}
+                      width={200}
                       className="w-full rounded-2xl"
                     />
                   </div>
                 </div>
-                <div className="w-full px-3 sm:px-4 xl:w-1/2">
+
+                {/* <div className="w-full px-3 sm:px-4 xl:w-1/2">
                   <div className="relative z-10 my-4">
-                    <img
+                    <Image
                       src="https://i.ibb.co/9y7nYCD/image-3.jpg"
                       alt=""
                       className="w-full rounded-2xl"
                     />
                
                   </div>
-                </div>
+                </div> */}
+
               </div>
             </div>
 
-            <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
+            <div className="w-full  lg:w-3/4 xl:w-3/4">
               <div className="mt-10 lg:mt-0">
                 {/* <span className="block mb-4 text-lg font-semibold">
                   Why Choose Us
                 </span> */}
-                <h2 className="mb-5 text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px]">
-                  Make your coders community happy by giving services.
+                <h2 className="mb-5 text-4xl  font-bold text-dark dark:text-white ">
+                  <u><i>  About us </i></u>
                 </h2>
                 <p className="mb-5 text-base text-body-color dark:text-dark-6">
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem Ipsum is that it has a more-or-less.
+                  At Hunting Coders, we believe in the power of coding to transform ideas into reality.
+                  Our blog is a digital hub where passionate coders, developers, and tech enthusiasts converge to explore, learn, and share their knowledge about the ever-evolving world of programming.
                 </p>
-                <p className="mb-8 text-base text-body-color dark:text-dark-6">
-                  A domain name is one of the first steps to establishing your
-                  brand. Secure a consistent brand image with a domain name that
-                  matches your business.
+
+                <h2 className="mb-5 text-4xl  font-bold text-dark dark:text-white ">
+                  Making coders community happy by giving services.
+                </h2>
+                🚀 Crafting Code, Building Dreams <br /> <br />
+
+                <p className="mb-5 text-base text-body-color dark:text-dark-6">
+                  👥<b> Community Building: </b> Join a thriving community of like-minded individuals who share a passion for coding.
+                  Connect with fellow developers, ask questions, and engage in discussions that foster learning and collaboration.
                 </p>
-                <a href="javascript:void(0)"
+                <p className="mb-5 text-base text-body-color dark:text-dark-6">
+                  🔧<b>Problem Solving: </b>Encounter coding challenges? Our blog provides practical solutions and troubleshooting guides to help you overcome obstacles in your coding journey.
+                </p>
+                <p className="mb-5 text-base text-body-color dark:text-dark-6">
+                  🎓<b>Learning Paths:  </b> Join a thriving community of like-minded individuals who share a passion for coding.
+                  Connect with fellow developers, ask questions, and engage in discussions that foster learning and collaboration.
+                </p>
+                <p className="mb-5 text-base text-body-color dark:text-dark-6">
+                  🌐<b> Tech Trends and Insights:</b> Stay ahead of the curve with our coverage of the latest trends, tools, and frameworks in the tech industry.
+                  Our team of experts keeps you informed about the rapidly changing landscape of programming.
+                </p>
+
+                <p className="mb-5 text-base text-body-color dark:text-dark-6">
+                  Thank you for being part of the CodeCrafters community. Together, let's code the future! <br /> <br />
+                  Happy coding! <br /> <br />
+                  The CodeCrafters Team <br />
+                </p>
+
+
+
+                <a href="http://localhost:3000/contact"
                   className="inline-flex items-center justify-center py-3 text-base font-medium text-center text-white border border-transparent rounded-md px-7 bg-slate-600 hover:bg-opacity-90"
                 >
                   Get Started
