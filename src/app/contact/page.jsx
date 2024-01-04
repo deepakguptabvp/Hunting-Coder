@@ -29,16 +29,18 @@ const page = () => {
         const result = await response.text();
         console.log("Success:", result);
         // toast.dark("Thank you for reaching out to us.")
+
         toast.success('👥 Thank you for reaching out to us.', {
-          position: "top-center",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: 1,
-          theme: "colored",
-          });
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+
         setFirst_name('');
         setLast_name('');
         setCompany_institution('');
