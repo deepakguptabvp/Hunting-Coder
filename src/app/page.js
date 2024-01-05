@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-6">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex  border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
+        <p className="fixed left-0 top-0 flex border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           A blog for hunting coders by hunting coder&nbsp;
         </p>
 
@@ -54,7 +54,7 @@ export default function Home() {
             <Image
               src="/blog.png"
               alt="Blog Logo"
-              className="dark:invert"
+              className="dark:invert "
               width={100}
               height={34}
               priority
@@ -74,8 +74,7 @@ export default function Home() {
         </h1>
 
         <Image
-          className="rounded-2xl"
-          // className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+          className="rounded-e-full m-5"
           src="/coderblog.png"
           alt="Coding Blog Logo"
           width={200}
@@ -85,24 +84,24 @@ export default function Home() {
       </div>
 
       <div className="blogs">
-        <h2 className="text-4xl font-bold hover:text-blue-800">Latest Blogs</h2>
+        <h3 className="text-4xl m-5 font-bold hover:text-blue-800 ">Latest Blogs</h3>
       </div>
 
 
       {/*  Fetching all blogs from blogsdata  */}
       <div className="mb-5 grid text-center lg:max-w-6xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-       
+
         {loading ? (skeletonBlog?.map((item, index) => {
-            return <div
-              className="group rounded-lg border border-transparent px-5 py-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
-              <Skeleton className={`mb-2`} height={"1.25rem"} />
-              <hr />
-              <Skeleton className={`text-sm opacity-50 mt-1`} />
-              <Skeleton className={`text-sm opacity-50`} />
-              <Skeleton className={`text-sm opacity-50`} />
-              <Skeleton className={`text-sm opacity-50`} />
-            </div>
-          })
+          return <div
+            className="group rounded-lg border border-transparent m-5 px-5 py-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
+            <Skeleton className={`mb-2`} height={"1.25rem"} />
+            <hr />
+            <Skeleton className={`text-sm opacity-50 mt-1`} />
+            <Skeleton className={`text-sm opacity-50`} />
+            <Skeleton className={`text-sm opacity-50`} />
+            <Skeleton className={`text-sm opacity-50`} />
+          </div>
+        })
 
         ) : (
           blogs?.map((blogs) => {
@@ -114,14 +113,18 @@ export default function Home() {
                 rel="noopener noreferrer"
                 key={blogs.slug}
               >
-                <h2 className={`mb-1 text-xl font-semibold`}>
+                <h3 className={`mb-1 text-base font-semibold`}>
                   {blogs.title}
                   {/* <span className="inline-block">-&gt;</span> */}
                   <hr />
-                </h2>
+                </h3>
                 <p className={`max-w-[190ch] text-sm opacity-50`}>
-                  {blogs.content.substr(0,125)}...{" "}
+                  {blogs.content.substr(0, 125)}...{" "}
                 </p>
+                <hr />
+                <button type="button" className=" mt-2" style={{ color: "black", background: "white", borderRadius: '8px' }}>
+                  Read More ...
+                </button>
               </Link>
             );
           })

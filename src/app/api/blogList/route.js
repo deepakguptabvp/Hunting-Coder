@@ -21,7 +21,7 @@ export async function GET(req, res) {
             }
 
         } else {
-            const files = await fs.promises.readdir('blogsdata');
+            let files = await fs.promises.readdir('blogsdata');
             console.log(files)
 
             for (const file of files) {
@@ -39,7 +39,7 @@ export async function GET(req, res) {
 
     } catch (error) {
         return NextResponse.json(
-            { message: "Server error" },
+            { message: "Server error" +  "hellooooo" },
             { status: 500 }
         );
     }

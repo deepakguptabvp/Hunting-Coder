@@ -11,7 +11,7 @@ const page = () => {
 
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true)
-  
+
   const skeletonBlog = [1, 2, 3, 4]
 
   useEffect(() => {
@@ -36,43 +36,46 @@ const page = () => {
   return (
 
     // old-base-code
-    <div className="min-h-lvh flex flex-col p-5  " style={{ "marginLeft": "300px", "marginRight": "300px" }} >
-      <h2 className='text-4xl text-center m-5 font-bold hover:text-blue-800'><u>  Latest Blogs </u></h2>
+    <div className="min-h-lvh flex flex-col p-5" style={{ "marginLeft": "300px", "marginRight": "300px" }} >
+      <h2 className='text-4xl text-center mb-5 font-bold hover:text-blue-800'><u>  Latest Blogs </u></h2>
 
       {loading ? (skeletonBlog?.map((item, index) => {
-            return <div
-              className="group rounded-lg border border-transparent px-5 py-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
-              <Skeleton className={`mb-2`} height={"1.25rem"} />
-              <hr />
-              <Skeleton className={`text-sm opacity-50 mt-1`} />
-              <Skeleton className={`text-sm opacity-50`} />
-              <Skeleton className={`text-sm opacity-50`} />
-              <Skeleton className={`text-sm opacity-50`} />
-            </div>
-          })
+        return <div
+          className="group rounded-lg border border-transparent  px-5 py-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
+          <Skeleton className={`mb-2`} height={"1.25rem"} />
+          <hr />
+          <Skeleton className={`text-sm opacity-50 mt-1`} />
+          <Skeleton className={`text-sm opacity-50`} />
+          <Skeleton className={`text-sm opacity-50`} />
+          <Skeleton className={`text-sm opacity-50`} />
+        </div>
+      })) : (
+        blogs?.map((blogs) => {
+          return (
+            <Link
+              href={`/blogpost/${blogs.slug}`}
+              className="group rounded-lg border border-transparent px-5 py-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+              target="_blank"
+              rel="noopener noreferrer"
+              key={blogs.slug}>
 
-        ) : (
-          blogs?.map((blogs) => {
-            return (
-              <Link
-                href={`/blogpost/${blogs.slug}`}
-                className="group rounded-lg border border-transparent px-5 py-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-                target="_blank"
-                rel="noopener noreferrer"
-                key={blogs.slug}
-              >
-                <h2 className={`mb-1 text-xl font-semibold`}>
-                  {blogs.title}
-                  {/* <span className="inline-block">-&gt;</span> */}
-                  <hr />
-                </h2>
-                <p className={`max-w-[190ch] text-sm opacity-50`}>
-                  {blogs.content.substr(0, 320)}...{" "}
-                </p>
-              </Link>
-            );
-          })
-        )}
+              <h2 className={`mb-1 text-xl font-semibold`}>
+                {blogs.title}
+                <span className="inline-block">-&gt;</span>
+                <hr />
+              </h2>
+              <p className={`max-w-[190ch] text-sm opacity-50`}>
+                {blogs.content.substr(0, 320)}...{" "}
+              </p>
+            </Link>
+          );
+        })
+      )
+      }
+
+      <p style={{ textAlign: 'center', margin: '5px' }}>
+        <b>Yay! You have seen it all ...</b>
+      </p>
 
     </div>
 

@@ -11,9 +11,11 @@
   "dependencies": {
     "@dotlottie/react-player": "^1.6.3",
     "@headlessui/react": "^1.7.17",
+    "cors": "^2.8.5",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-infinite-scroll-component": "^6.1.0",
     "react-loading-skeleton": "^3.3.1",
     "react-toastify": "^9.1.3"
   },
