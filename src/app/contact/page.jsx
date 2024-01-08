@@ -210,8 +210,7 @@ const page = () => {
             <div className="relative rounded-lg bg-white p-8 shadow-lg dark:bg-dark-2 sm:p-12">
               {/* Form */}
               <form onSubmit={handleSubmit}>
-                
-                {/* <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                   <div>
                     <label
                       htmlFor="first-name"
@@ -304,8 +303,6 @@ const page = () => {
                       Phone number
                     </label>
                     <div className="relative mt-2.5">
-                 
-
                       <input
                         type="number"
                         value={phone_number}
@@ -341,7 +338,7 @@ const page = () => {
                       />
                     </div>
                   </div>
-                </div> */}
+                </div>
 
                 <div className="mt-10">
                   <button
