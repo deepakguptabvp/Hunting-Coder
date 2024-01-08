@@ -210,7 +210,8 @@ const page = () => {
             <div className="relative rounded-lg bg-white p-8 shadow-lg dark:bg-dark-2 sm:p-12">
               {/* Form */}
               <form onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+                
+                {/* <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                   <div>
                     <label
                       htmlFor="first-name"
@@ -303,23 +304,7 @@ const page = () => {
                       Phone number
                     </label>
                     <div className="relative mt-2.5">
-                      {/* <div className="absolute inset-y-0 left-0 flex items-center">
-                        <label htmlFor="country" className="sr-only">
-                          Country
-                        </label>
-                        
-                        <select
-                          id="country"
-                          name="country"
-                          className="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-9 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
-                        >
-                          <option>IN</option>
-                          <option>US</option>
-                          <option>CA</option>
-                          <option>EU</option>
-                        </select>
-
-                      </div> */}
+                 
 
                       <input
                         type="number"
@@ -356,7 +341,7 @@ const page = () => {
                       />
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="mt-10">
                   <button
