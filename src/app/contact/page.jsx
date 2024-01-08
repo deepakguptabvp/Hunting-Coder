@@ -10,8 +10,11 @@ const page = () => {
   const [phone_number, setPhone_number] = useState("");
   const [message, setMessage] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true)
     console.log(
       first_name,
       last_name,
@@ -40,6 +43,7 @@ const page = () => {
         });
 
         const result = await response.json();
+        setLoading(false)
         if (result?.success) {
           // toast.dark("Thank you for reaching out to us.")
           toast.success("👥 Thank you for reaching out to us.", {
@@ -63,6 +67,7 @@ const page = () => {
           console.log("Error", result);
         }
       } catch (error) {
+        setLoading(false)
         console.error("Error:", error);
       }
     }
@@ -208,6 +213,7 @@ const page = () => {
           {/* Second half - page of Form */}
           <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
             <div className="relative rounded-lg bg-white p-8 shadow-lg dark:bg-dark-2 sm:p-12">
+
               {/* Form */}
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -342,10 +348,10 @@ const page = () => {
 
                 <div className="mt-10">
                   <button
-                    type="submit"
+                    type="submit" disabled = {loading}
                     className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
-                    Let's talk
+                    { loading ?'Loading...':"Let's talk" }
                   </button>
                 </div>
               </form>
