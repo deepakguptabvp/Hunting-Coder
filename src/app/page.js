@@ -14,13 +14,7 @@ export default function Home() {
   useEffect(() => {
     console.log("useEffect is running...");
 
-    // deployment on vercel
-    let url = "";
-    if (process.env.NODE_ENV == "development") {
-      url = `http://localhost:3000/`;
-    } else {
-      url = process.env.API_URL;
-    }
+  
 
     const fetchData = async () => {
       setLoading(true);

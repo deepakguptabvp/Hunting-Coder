@@ -31,7 +31,7 @@ const page = () => {
     };
     async function postJSON(data) {
       try {
-        const response = await fetch("http://localhost:3000/api/contactList", {
+        const response = await fetch("/api/contactList", {
           method: "POST", // or 'PUT'
           headers: {
             "Content-Type": "application/json",

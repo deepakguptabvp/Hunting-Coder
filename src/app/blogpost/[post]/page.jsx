@@ -20,7 +20,7 @@ export default function blogpost({ params }) {
     console.log(params);
     if (params.post) {
       setLoading(true)
-      fetch(`http://localhost:3000/api/blogList?param=${params.post}`).then((a) => {
+      fetch(`/api/blogList?param=${params.post}`).then((a) => {
         setLoading(false)
         return a.json()
       }).then((parsed) => {

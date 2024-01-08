@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from "next/image";
+import Link from 'next/link';
 
 const page = () => {
   return (
@@ -90,11 +91,11 @@ const page = () => {
 
 
 
-                <a href="http://localhost:3000/contact"
+                <Link href="/contact"
                   className="inline-flex items-center justify-center py-3 text-base font-medium text-center text-white border border-transparent rounded-md px-7 bg-slate-600 hover:bg-opacity-90"
                 >
                   Get Started
-                </a>
+                </Link>
               </div>
             </div>
           </div>
