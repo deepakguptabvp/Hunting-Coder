@@ -14,10 +14,10 @@ export async function POST(req, res) {
 
         let data = await fs.promises.readdir(path);
         console.log("123456789", data);
-
         
-        responseData = await fs.promises.writeFile(`${path}/${new Date().getTime()}.json`, JSON.stringify(body));
+        responseData = await fs.promises.writeFile(`/${new Date().getTime()}.json`, JSON.stringify(body));
         console.log("123456789", responseData);
+
         return NextResponse.json(
           { message: "Your contact details", data: body, success: true },
           { status: 200 }
