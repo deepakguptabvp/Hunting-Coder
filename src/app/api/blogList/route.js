@@ -7,7 +7,7 @@ export async function GET(req, res) {
         const param = new URL(req.url)?.searchParams?.get("param");
         console.log(param);
         let responseData;
-        let path  = process.cwd() + "/src/app/api/blogList/blogsdata";
+        let path = process.cwd() + "/src/app/api/blogList/blogsdata";
         let fileContents = [];
         if (param) {
             try {
@@ -22,8 +22,7 @@ export async function GET(req, res) {
             }
 
         } else {
-            console.log("hellooooooooooo3333", cwd(), process.cwd() + "/src/app/api/blogList");
-            
+            // console.log("hellooooooooooo3333", path);
             let files = await fs.promises.readdir(path);
             // const file = await fs.readFile(process.cwd() + '/app/data.json', 'utf8');
             console.log("hellooooooooooo44444", files);
