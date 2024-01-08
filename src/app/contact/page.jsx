@@ -1,21 +1,34 @@
-'use client'
-import { React, useState } from 'react'
-import { toast } from 'react-toastify';
+"use client";
+import { React, useState } from "react";
+import { toast } from "react-toastify";
 
 const page = () => {
-
-  const [first_name, setFirst_name] = useState('')
-  const [last_name, setLast_name] = useState('')
-  const [company_institution, setCompany_institution] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone_number, setPhone_number] = useState('')
-  const [message, setMessage] = useState('')
+  const [first_name, setFirst_name] = useState("");
+  const [last_name, setLast_name] = useState("");
+  const [company_institution, setCompany_institution] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone_number, setPhone_number] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(first_name, last_name, company_institution, email, phone_number, message);
+    e.preventDefault();
+    console.log(
+      first_name,
+      last_name,
+      company_institution,
+      email,
+      phone_number,
+      message
+    );
 
-    const data = { first_name, last_name, company_institution, email, phone_number, message };
+    const data = {
+      first_name,
+      last_name,
+      company_institution,
+      email,
+      phone_number,
+      message,
+    };
     async function postJSON(data) {
       try {
         const response = await fetch("http://localhost:3000/api/contactList", {
@@ -30,67 +43,72 @@ const page = () => {
         console.log("Success:", result);
         // toast.dark("Thank you for reaching out to us.")
 
-        toast.success('👥 Thank you for reaching out to us.', {
-            position: "top-center",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-            });
+        toast.success("👥 Thank you for reaching out to us.", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
 
-        setFirst_name('');
-        setLast_name('');
-        setCompany_institution('');
-        setPhone_number('');
-        setEmail('');
-        setMessage('');
+        setFirst_name("");
+        setLast_name("");
+        setCompany_institution("");
+        setPhone_number("");
+        setEmail("");
+        setMessage("");
       } catch (error) {
         console.error("Error:", error);
       }
     }
 
     postJSON(data);
-  }
+  };
 
   const handleChange = (e) => {
-    if (e.target.name == 'first-name') {
-      setFirst_name(e.target.value)
+    if (e.target.name == "first-name") {
+      setFirst_name(e.target.value);
+    } else if (e.target.name == "last-name") {
+      setLast_name(e.target.value);
+    } else if (e.target.name == "company") {
+      setCompany_institution(e.target.value);
+    } else if (e.target.name == "phone-number") {
+      setPhone_number(e.target.value);
+    } else if (e.target.name == "email") {
+      setEmail(e.target.value);
+    } else if (e.target.name == "message") {
+      setMessage(e.target.value);
     }
-    else if (e.target.name == 'last-name') {
-      setLast_name(e.target.value)
-    }
-    else if (e.target.name == 'company') {
-      setCompany_institution(e.target.value)
-    }
-    else if (e.target.name == 'phone-number') {
-      setPhone_number(e.target.value)
-    }
-    else if (e.target.name == 'email') {
-      setEmail(e.target.value)
-    }
-    else if (e.target.name == 'message') {
-      setMessage(e.target.value)
-    }
-  }
+  };
 
   return (
-
     <div className="relative p-5  dark:bg-dark ">
       <div className="container">
         <div className="-mx-4 flex flex-wrap lg:justify-between">
           <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
-
             <div className="mb-12  lg:mb-0">
-
               <h2 className="mb-6 text-[20px] font-bold uppercase text-dark dark:text-white sm:text-[40px] lg:text-[36px] xl:text-[40px]">
-                <img src="/icons8-contact-us-50.png" alt="image" className=' inline-block' /> <u> GET IN TOUCH WITH US
-                </u></h2>
+                <img
+                  src="/icons8-contact-us-50.png"
+                  alt="image"
+                  className=" inline-block"
+                />{" "}
+                <u> GET IN TOUCH WITH US</u>
+              </h2>
               <p className="mb-9 text-base leading-relaxed text-body-color dark:text-dark-6">
-                Welcome to our Hunting Coder community! We value your input and encourage you to reach out if you have any questions, suggestions, or just want to connect with fellow coding enthusiasts. Our "Contact Us" section serves as a direct line between you and our team. Whether you're seeking assistance with a coding challenge, have feedback on our content, or want to contribute your own insights, we're here to listen. <br />
-                Feel free to drop us a message, and we'll do our best to respond promptly. Your engagement is what makes our coding journey richer, and we look forward to hearing from you. Happy coding!
+                Welcome to our Hunting Coder community! We value your input and
+                encourage you to reach out if you have any questions,
+                suggestions, or just want to connect with fellow coding
+                enthusiasts. Our "Contact Us" section serves as a direct line
+                between you and our team. Whether you're seeking assistance with
+                a coding challenge, have feedback on our content, or want to
+                contribute your own insights, we're here to listen. <br />
+                Feel free to drop us a message, and we'll do our best to respond
+                promptly. Your engagement is what makes our coding journey
+                richer, and we look forward to hearing from you. Happy coding!
               </p>
               <div className="mb-8 flex w-full max-w-[370px]">
                 <div className="mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-primary/5 text-primary sm:h-[70px] sm:max-w-[70px]">
@@ -112,7 +130,8 @@ const page = () => {
                     Our Location
                   </h4>
                   <p className="text-base text-body-color dark:text-dark-6">
-                    Plot No. 44 D, Phase IV, Udyog Vihar, Sector 18, Gurugram, Haryana 122001
+                    Plot No. 44 D, Phase IV, Udyog Vihar, Sector 18, Gurugram,
+                    Haryana 122001
                   </p>
                 </div>
               </div>
@@ -182,18 +201,19 @@ const page = () => {
                 </div>
               </div>
             </div>
-
           </div>
 
           {/* Second half - page of Form */}
           <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
             <div className="relative rounded-lg bg-white p-8 shadow-lg dark:bg-dark-2 sm:p-12">
-
               {/* Form */}
-              <form onSubmit={handleSubmit} method='POST'>
+              <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
+                    <label
+                      htmlFor="first-name"
+                      className="block text-sm font-semibold leading-6 text-gray-900"
+                    >
                       First name
                     </label>
                     <div className="mt-2.5">
@@ -202,6 +222,7 @@ const page = () => {
                         value={first_name}
                         onChange={handleChange}
                         name="first-name"
+                        required
                         id="first_name"
                         autoComplete="given-name"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -210,7 +231,10 @@ const page = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900">
+                    <label
+                      htmlFor="last-name"
+                      className="block text-sm font-semibold leading-6 text-gray-900"
+                    >
                       Last name
                     </label>
                     <div className="mt-2.5">
@@ -219,6 +243,7 @@ const page = () => {
                         value={last_name}
                         onChange={handleChange}
                         name="last-name"
+                        required
                         id="last_name"
                         autoComplete="family-name"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -227,7 +252,10 @@ const page = () => {
                   </div>
 
                   <div className="sm:col-span-2">
-                    <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900">
+                    <label
+                      htmlFor="company"
+                      className="block text-sm font-semibold leading-6 text-gray-900"
+                    >
                       Company/Institution
                     </label>
                     <div className="mt-2.5">
@@ -236,6 +264,7 @@ const page = () => {
                         value={company_institution}
                         onChange={handleChange}
                         name="company"
+                        required
                         id="company_institution"
                         autoComplete="organization"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -244,7 +273,10 @@ const page = () => {
                   </div>
 
                   <div className="sm:col-span-2">
-                    <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-semibold leading-6 text-gray-900"
+                    >
                       Email
                     </label>
                     <div className="mt-2.5">
@@ -254,6 +286,7 @@ const page = () => {
                         onChange={handleChange}
                         name="email"
                         id="email"
+                        required
                         autoComplete="email"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
@@ -261,11 +294,13 @@ const page = () => {
                   </div>
 
                   <div className="sm:col-span-2">
-                    <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-gray-900">
+                    <label
+                      htmlFor="phone-number"
+                      className="block text-sm font-semibold leading-6 text-gray-900"
+                    >
                       Phone number
                     </label>
                     <div className="relative mt-2.5">
-
                       {/* <div className="absolute inset-y-0 left-0 flex items-center">
                         <label htmlFor="country" className="sr-only">
                           Country
@@ -289,8 +324,9 @@ const page = () => {
                         value={phone_number}
                         onChange={handleChange}
                         name="phone-number"
-                        placeholder='+91'
+                        placeholder="+91"
                         id="phone_number"
+                        required
                         autoComplete="tel"
                         className="block w-full rounded-md border-0 px-3.5 py-2  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
@@ -298,7 +334,10 @@ const page = () => {
                   </div>
 
                   <div className="sm:col-span-2">
-                    <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-semibold leading-6 text-gray-900"
+                    >
                       Message
                     </label>
                     <div className="mt-2.5">
@@ -307,32 +346,31 @@ const page = () => {
                         value={message}
                         onChange={handleChange}
                         id="message"
-                        placeholder='Write your concern here !'
+                        required
+                        placeholder="Write your concern here !"
                         rows={4}
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={''}
+                        // defaultValue={''}
                       />
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-10">
-                  <button type="submit"
+                  <button
+                    type="submit"
                     className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Let's talk
                   </button>
                 </div>
               </form>
-
             </div>
           </div>
         </div>
       </div>
     </div>
-
   );
 };
 
-
-export default page
+export default page;
