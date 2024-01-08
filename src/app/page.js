@@ -25,7 +25,7 @@ export default function Home() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`/api/blogList`);
+        const res = await fetch(`/api/blogList`, {method:"get"});
         const data = await res.json();
         setLoading(false);
         setBlogs(data.data);
