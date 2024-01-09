@@ -88,12 +88,12 @@ export default function Home() {
         {loading ? (skeletonBlog?.map((item, index) => {
           return <div
             className="group rounded-lg border border-transparent m-5 px-5 py-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
-            <Skeleton className={`mb-2`} height={"1.25rem"} />
+            <Skeleton className={`mb-2`} height={"1rem"} width={120}/>
             <hr />
-            <Skeleton className={`text-sm opacity-50 mt-1`} />
-            <Skeleton className={`text-sm opacity-50`} />
-            <Skeleton className={`text-sm opacity-50`} />
-            <Skeleton className={`text-sm opacity-50`} />
+            <Skeleton className={`text-sm opacity-50 mt-1`} height={"1rem"}/>
+            <Skeleton className={`text-sm opacity-50`} height={"1rem"}/>
+            <Skeleton className={`text-sm opacity-50`} height={"1rem"}/>
+            <Skeleton className={`text-sm opacity-50`} height={"1rem"}/>
           </div>
         })
 

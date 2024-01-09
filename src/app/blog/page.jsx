@@ -33,10 +33,7 @@ const page = () => {
 
   return (
     // old-base-code
-    <div
-      className="min-h-lvh flex flex-col p-5"
-      style={{ marginLeft: "300px", marginRight: "300px" }}
-    >
+    <div className="min-h-lvh flex flex-col p-5 container mx-auto">
       <h2 className="text-4xl text-center mb-5 font-bold hover:text-blue-800">
         <u> Latest Blogs </u>
       </h2>
@@ -45,12 +42,12 @@ const page = () => {
         ? skeletonBlog?.map((item, index) => {
             return (
               <div className="group rounded-lg border border-transparent  px-5 py-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
-                <Skeleton className={`mb-2`} height={"1.25rem"} />
+                <Skeleton className={`mb-2`} height={"1rem"} width={200} />
                 <hr />
-                <Skeleton className={`text-sm opacity-50 mt-1`} />
-                <Skeleton className={`text-sm opacity-50`} />
-                <Skeleton className={`text-sm opacity-50`} />
-                <Skeleton className={`text-sm opacity-50`} />
+                <Skeleton className={`text-sm opacity-50 mt-1`} height={"1rem"}/>
+                <Skeleton className={`text-sm opacity-50`} height={"1rem"} />
+                <Skeleton className={`text-sm opacity-50`} height={"1rem"} />
+                <Skeleton className={`text-sm opacity-50`} height={"1rem"} />
               </div>
             );
           })

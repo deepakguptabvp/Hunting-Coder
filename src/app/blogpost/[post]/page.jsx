@@ -32,7 +32,7 @@ export default function blogpost({ params }) {
 
 
   return (
-    <div className='min-h-lvh mb-10 mt-10' style={{ marginLeft: "300px", marginRight: "300px" }}>
+    <div className='min-h-lvh container mx-auto mb-10 mt-10' >
       <div className="group rounded-lg border border-transparent px-5 py-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
         <h3 className='font-bold text-center text-2xl'>{blog?.title}</h3>
         <hr />
