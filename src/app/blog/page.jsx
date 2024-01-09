@@ -33,7 +33,7 @@ const page = () => {
 
   return (
     // old-base-code
-    <div className="min-h-lvh flex flex-col p-5 container mx-auto">
+    <div className="min-h-lvh flex flex-col p-5 pr-10 pl-10 container mx-auto">
       <h2 className="text-4xl text-center mb-5 font-bold hover:text-blue-800">
         <u> Latest Blogs </u>
       </h2>
