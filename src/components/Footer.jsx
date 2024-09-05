@@ -51,11 +51,11 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                    <hr className="my-8 border-gray-400 sm:mx-auto dark:border-gray-700 lg:my-8" />
                     <div className="sm:flex sm:items-center sm:justify-between">
-                        <span className="text-sm  text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a className="hover:underline">HuntingCoder™</a>. All Rights Reserved.
+                        <span className="text-sm  text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href='' className="hover:underline">HuntingCoder™</a>. All Rights Reserved.
                         </span>
-                        
+
                         <div className="flex mt-4 sm:justify-center sm:mt-0">
                             <Link href="/" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                                 <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">

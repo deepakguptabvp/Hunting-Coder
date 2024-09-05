@@ -1,6 +1,5 @@
 import * as fs from "fs";
 import { NextResponse } from "next/server";
-import { cwd } from "process";
 
 export async function GET(req, res) {
     try {
