@@ -3,8 +3,8 @@ import React from 'react'
 
 const Navbar = () => {
     return (
-        <div>
-            <nav className="bg-white border-gray-200 dark:bg-gray-900">
+        <div style={{position:'sticky', top:0, zIndex:100}}>
+            <nav className="bg-white border-gray-200 dark:bg-neutral-800">
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
                     <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                         <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
