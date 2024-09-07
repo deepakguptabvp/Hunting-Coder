@@ -15,7 +15,7 @@ const Navbar = () => {
                     <div>
                 <div className="max-w-screen-xl px-4 py-3 mx-auto">
                     <div className="flex items-center">
-                        <ul className="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
+                        <ul className="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse md:text-lg text-sm">
                             <li>
                                 <Link href="/" className="text-gray-900 dark:text-white hover:underline" aria-current="page">Home</Link>
                             </li>
@@ -33,9 +33,9 @@ const Navbar = () => {
                 </div>
             </div>
 
-                    <div className="flex items-center space-x-6 rtl:space-x-reverse">
+                    <div className="flex items-center space-x-6 rtl:space-x-reverse md:flex-row md:h-2">
                         <a href="tel:5541251234" className="text-sm  text-gray-500 dark:text-white hover:underline"></a>
-                        <a href="#" className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 ">Login</a>
+                        <a href="#" className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm p-3 text-center me-2 mb-2 ">Login</a>
                     </div>
 
                 </div>

@@ -12,14 +12,14 @@ const page = () => {
           <div className="flex ">
             <div className="lg:w-2/4 text-center">
               <div className="min-w-48">
-                <div className="w-full text-center sm:px-4 xl:w-3/4">
+                <div className="w-full text-center ">
                   <div className="py-3 sm:py-4 text-center">
                     <Image
                       src="/image-1.jpg"
                       alt=""
                       height={600}
                       width={400}
-                      className="w-full rounded-xl"
+                      className="rounded-full m-auto sm:px-6 xl:w-3/4"
                     />
                   </div>
 
@@ -29,7 +29,7 @@ const page = () => {
                       alt=""
                       height={200}
                       width={200}
-                      className="w-full rounded-2xl"
+                      className="rounded-full m-auto sm:px-6 xl:w-3/4"
                     />
                   </div>
                 </div>
@@ -41,7 +41,7 @@ const page = () => {
                 {/* <span className="block mb-4 text-lg font-semibold">
                   Why Choose Us
                 </span> */}
-                <h2 className="mb-5 text-4xl  font-bold text-dark dark:text-white ">
+                <h2 className="mb-5 text-3xl font-bold text-dark dark:text-white ">
                   <u>
                     <i> About us </i>
                   </u>
@@ -53,7 +53,7 @@ const page = () => {
                   to explore, learn, and share their knowledge about the
                   ever-evolving world of programming.
                 </p>
-                <h2 className="mb-5 text-4xl  font-bold text-dark dark:text-white ">
+                <h2 className="mb-5 text-3xl font-bold text-dark dark:text-white ">
                   Making coders community happy by giving services.
                 </h2>
                 🚀 Crafting Code, Building Dreams <br /> <br />

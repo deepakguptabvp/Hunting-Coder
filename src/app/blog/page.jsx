@@ -34,14 +34,14 @@ const page = () => {
   return (
     // old-base-code
     <div className="min-h-lvh flex flex-col p-5 pr-10 pl-10 container mx-auto">
-      <h2 className="text-4xl text-center mb-5 font-bold hover:text-blue-800">
+      <h2 className="text-3xl text-center mb-5 font-bold font-sans">
         <u> Latest Blogs </u>
       </h2>
 
       {loading
         ? skeletonBlog?.map((item, index) => {
             return (
-              <div className="group rounded-lg border border-transparent  px-5 py-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
+              <div className="group rounded-lg border border-transparent p-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
                 <Skeleton className={`mb-2`} height={"1rem"} width={200} />
                 <hr />
                 <Skeleton className={`text-sm opacity-50 mt-1`} height={"1rem"}/>
@@ -55,7 +55,9 @@ const page = () => {
             return (
               <Link
                 href={`/blogpost/${blogs.slug}`}
-                className="group rounded-lg border border-transparent px-5 py-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+
+                // http://localhost:3000/blog ----content part 
+                className="group w-[70%] m-auto mb-8 p-5 gap-y-4 rounded-lg border border-transparent transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
                 // target="_blank"
                 rel="noopener noreferrer"
                 key={index}
