@@ -26,13 +26,18 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-
-
-.flex-container{
+.flex-container {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
+
+/* .navbar {
+  position: "sticky";
+  top: 0;
+  z-index: 100;
+  background-color: "linear-gradient(to right, rgb(41, 128, 185), rgb(109, 213, 250), rgb(255, 255, 255))";
+} */
 
 /* .name{
   flex: 1 0 140px;
@@ -45,4 +50,3 @@ body {
 .ph{
   flex: 1 0 60px;
 } */
-

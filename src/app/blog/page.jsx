@@ -41,7 +41,7 @@ const page = () => {
       {loading
         ? skeletonBlog?.map((item, index) => {
             return (
-              <div className="group rounded-lg border border-transparent p-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
+              <div key={index} className="group rounded-lg border border-transparent p-5 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
                 <Skeleton className={`mb-2`} height={"1rem"} width={200} />
                 <hr />
                 <Skeleton className={`text-sm opacity-50 mt-1`} height={"1rem"}/>
