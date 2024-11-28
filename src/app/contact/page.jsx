@@ -203,7 +203,7 @@ const page = () => {
                     Email Address
                   </h4>
                   <p className="text-base text-body-color dark:text-dark-6">
-                    huntingcoders@gamil.com
+                    huntingcoders@gmail.com
                   </p>
                 </div>
               </div>
