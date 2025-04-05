@@ -14,8 +14,8 @@ const page = () => {
             {/* Left column with images */}
             <div className="lg:w-2/4 text-center">
               <div className="min-w-48">
-                <div className="w-full text-center">
-                  <div className="py-3 sm:py-4 text-center relative group">
+                <div className="w-full text-center flex flex-col gap-36">
+                  <div className="py-3 mt-20 sm:py-4 text-center relative group">
                     <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
                     <Image
                       src="/image-1.jpg"
