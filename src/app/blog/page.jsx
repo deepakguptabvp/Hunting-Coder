@@ -36,7 +36,7 @@ const page = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h2 className="text-4xl text-center mb-10 font-bold font-mono relative">
           <span className="text-purple-600 dark:text-purple-400">&lt;</span>
-          <span className="mx-2 text-white">Latest Blogs</span>
+          <span className="mx-2 dark:text-white">Latest Blogs</span>
           <span className="text-purple-600 dark:text-purple-400">/&gt;</span>
           <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"></div>
         </h2>
